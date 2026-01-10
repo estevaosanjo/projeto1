@@ -1,1 +1,1 @@
-Test of comand PULL
+Test of comand Git/GIT HUB
