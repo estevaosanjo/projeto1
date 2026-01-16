@@ -19,6 +19,21 @@
     <p> Vamos criar um mini jogo interativo, utilizando JS e HTML para aprimoramento da interface.</p>
     <p> Também utilizando GIT/GIT HUB para salvar o projeto.</p>
     </p>
+
+    <canvas id="folha" width="600" height="500"></canvas>
 </BODY>
+
+<script>
+    var folhad = document.getElementById("folha");
+    var aread = folhad.getContext("2d");
+
+    aread.fillStyle = "#286047";
+    aread.fillRect(0,0,600,500);
+
+    aread.fillStyle = '#ffffff';
+    aread.fillRect(297.5,0,5,500);
+
+
+</script>
 
 </html>
