@@ -11,28 +11,65 @@
 </HEAD>
 
 <BODY>
-    <h1 align="center" style="color: black"> Primeira projeto JS e HTML</h1>
+
+    </br>
+    <h1 align="center" style="color: black"> Primeiro projeto JS e HTML</h1>
     </br>
     </br>
 
-    <p> Bem vindos, meu primeiro projeto em HTML</p>
-    <p> Vamos criar um mini jogo interativo, utilizando JS e HTML para aprimoramento da interface.</p>
-    <p> Também utilizando GIT/GIT HUB para salvar o projeto.</p>
+    <p align="center"> Bem vindos, meu primeiro projeto em HTML</p>
+    <p align="center"> Vamos criar um mini jogo interativo, utilizando JS e HTML para aprimoramento da interface.</p>
+    <p align="center"> Também utilizando GIT/GIT HUB para salvar o projeto.</p>
     </p>
+</br>
+</br>
 
     <canvas id="folha" width="600" height="500"></canvas>
 </BODY>
 
 <script>
+    
+    window.onload = function(){
+        setInterval(executar, 1000/60);
+    }   
+    
+    var posicaoBolaX = posicaoBolaY = 10;
+
+    function executar (){
+    
     var folhad = document.getElementById("folha");
     var aread = folhad.getContext("2d");
 
-    aread.fillStyle = "#286047";
-    aread.fillRect(0,0,600,500);
+    var larguraCampo = 600;
+    var alturaCampo = 500;
+    var larguraLinha = 5;
+    var larguraRaquete = 50;
+    var tamanhoBola= 10;
+    
 
-    aread.fillStyle = '#ffffff';
-    aread.fillRect(297.5,0,5,500);
+    aread.fillStyle = "#286047"; // Cor verde campo
 
+    // Campo de jogo 
+    aread.fillRect(0,0,larguraCampo,alturaCampo);
+
+    aread.fillStyle = '#ffffff'; // Cor branca p/ elementos 
+
+    // Linha central
+    aread.fillRect(larguraCampo/2 - larguraLinha/2,0,larguraLinha,alturaCampo); 
+
+    // Raquete 1
+    aread.fillRect(0,30,5,larguraRaquete);
+
+    // Raquete 2 
+    aread.fillRect(larguraCampo - larguraLinha,70,5,larguraRaquete);
+    
+    // Bola 
+    aread.fillRect(posicaoBolaX,posicaoBolaY,tamanhoBola,tamanhoBola); 
+     
+    posicaoBolaX++;
+    posicaoBolaY++;
+
+   }
 
 </script>
 
