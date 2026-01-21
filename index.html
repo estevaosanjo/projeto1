@@ -34,6 +34,7 @@
     }   
     
     var posicaoBolaX = posicaoBolaY = 10;
+    var velocidadeBolaX = velocidadeBolaY = 1;
 
     function executar (){
     
@@ -66,8 +67,16 @@
     // Bola 
     aread.fillRect(posicaoBolaX,posicaoBolaY,tamanhoBola,tamanhoBola); 
      
-    posicaoBolaX++;
-    posicaoBolaY++;
+    posicaoBolaX= posicaoBolaX + velocidadeBolaX;
+    posicaoBolaY= posicaoBolaY + velocidadeBolaY;
+    
+    //Criando regras de colisão - Superior e Inferior
+    if(posicaoBolaY < 0 && velocidadeBolaY < 0){
+         velocidadeBolaY = -velocidadeBolaY;
+    }
+    if (posicaoBolaY > alturaCampo && velocidadeBolaY > 0){
+        velocidadeBolaY = -velocidadeBolaY;
+    }
 
    }
 
