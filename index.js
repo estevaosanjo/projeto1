@@ -1,5 +1,9 @@
-let palavra = "Hello Git!"; 
-let numero = 23;
+function soma(x){
+    return x + 1;
+}
 
-console.log(numero);
-console.log(palavra);
+let n1 = soma(1);
+let n2 = soma(2);
+let n3 = soma(3);
+
+console.log(n1);
