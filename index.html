@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
 <script>
-    alert("Cuidado! Grandes riscos desse website te viciar...");
+    alert("Cuidado! Grandes riscos desse jogo te viciar...");
 </script>
 
 <html>
 
 <HEAD>
-    <TITLE>Fist Website</TITLE>
+    <TITLE>Interactive Game</TITLE>
 </HEAD>
 
 <BODY>
@@ -15,108 +15,137 @@
     </br>
     <h1 align="center" style="color: black"> Primeiro projeto JS e HTML</h1>
     </br>
-    </br>
-
     <p align="center"> Bem vindos, meu primeiro projeto em HTML</p>
     <p align="center"> Vamos criar um mini jogo interativo, utilizando JS e HTML para aprimoramento da interface.</p>
     <p align="center"> Também utilizando GIT/GIT HUB para salvar o projeto.</p>
-    </p>
 </br>
 </br>
+  <center>
+  <canvas id="folha" width="600" height="500"></canvas>
+  </center>
 
-    <canvas id="folha" width="600" height="500"></canvas>
 </BODY>
 
-<script>
-    
+<script>   
     window.onload = function(){
-        setInterval(executar, 1000/60);
+        VariaveisJogo(); // Inicializar variáveis do jogo
+        setInterval(Principal, 1000/60); // 60 quadros por segundo
     }   
-    
-    var posicaoBolaX = posicaoBolaY = 30;
-    var velocidadeBolaX = velocidadeBolaY = 5;
-    var posicaoJogador1 = posicaoJogador2 = 30;
-    var pontuacaoJg1 = pontuacaoJg2 = 0;
+        // Função para centralizar a bola após ponto
+        function BolaCentro(){
 
+        posicaoBolaX = larguraCampo/2;  
+        posicaoBolaY = alturaCampo/2;   
+        velocidadeBolaX = -velocidadeBolaX;
+        velocidadeBolaY = 3; 
+        };
+        // Função para desenhar os elementos do jogo
+        function DesenhoJogo(){
 
+            aread.fillStyle = "#286047"; // Cor verde campo
 
-    function executar (){
-    
-    var folhad = document.getElementById("folha");
-    var aread = folhad.getContext("2d");
+            // Campo de jogo 
+            aread.fillRect(0,0,larguraCampo,alturaCampo);
 
-    var larguraCampo = 600;
-    var alturaCampo = 500;
-    var larguraLinha = 5;
-    var AlturaRaquete = 150;
-    var espessuraRaquete = 5;
-    var tamanhoBola= 10;
-    var efeitoRaq = 0.5;
-    
+            aread.fillStyle = '#ffffff'; // Cor branca p/ elementos 
 
-    aread.fillStyle = "#286047"; // Cor verde campo
+            // Linha central
+            aread.fillRect(larguraCampo/2 - larguraLinha/2,0,larguraLinha,alturaCampo); 
 
-    // Campo de jogo 
-    aread.fillRect(0,0,larguraCampo,alturaCampo);
+            // Raquete 1
+            aread.fillRect(0,posicaoJogador1,espessuraRaquete,AlturaRaquete);
 
-    aread.fillStyle = '#ffffff'; // Cor branca p/ elementos 
+            // Raquete 2 
+            aread.fillRect(larguraCampo - espessuraRaquete,posicaoJogador2,espessuraRaquete,AlturaRaquete);
+            
+            // Bola 
+            aread.fillRect(posicaoBolaX-tamanhoBola/2,posicaoBolaY-tamanhoBola/2,tamanhoBola,tamanhoBola); 
+            
+            // Pontuação dos jogadores
+            aread.fillText("Humano- "+ pontuacaoJg1 +" pontos", 100,100);
+            aread.fillText("Computador- "+ pontuacaoJg2 +" pontos", larguraCampo-200,100);
 
-    // Linha central
-    aread.fillRect(larguraCampo/2 - larguraLinha/2,0,larguraLinha,alturaCampo); 
-
-    // Raquete 1
-    aread.fillRect(0,posicaoJogador1,espessuraRaquete,AlturaRaquete);
-
-    // Raquete 2 
-    aread.fillRect(larguraCampo - espessuraRaquete,posicaoJogador2,espessuraRaquete,AlturaRaquete);
-    
-    // Bola 
-    aread.fillRect(posicaoBolaX-tamanhoBola/2,posicaoBolaY-tamanhoBola/2,tamanhoBola,tamanhoBola); 
-     
-    posicaoBolaX= posicaoBolaX + velocidadeBolaX;
-    posicaoBolaY= posicaoBolaY + velocidadeBolaY;
-    
-    // Regras de colisão - Superior e Inferior
-    if(posicaoBolaY < 0 && velocidadeBolaY < 0){
-        // Aqui após a posição ultrapassar o valor 0, inverte o valor
-         velocidadeBolaY = -velocidadeBolaY;
-    }
-    if (posicaoBolaY > alturaCampo && velocidadeBolaY > 0){
-        // Aqui após a posição ultrapassar a alturaCampo, inverte o valor
-        velocidadeBolaY = -velocidadeBolaY;
-    }
-
-    // Regras de colisão com as raquetes
-
-    // Verificar se o jogador 2 fez ponto
-    if(posicaoBolaX < 0){
-        if(posicaoBolaY > posicaoJogador1 && posicaoBolaY < posicaoJogador1 + AlturaRaquete){
-            velocidadeBolaX = -velocidadeBolaX;
-           
-        var difY = posicaoBolaY - (posicaoJogador1 + AlturaRaquete/2);
-        velocidadeBolaY= difY * efeitoRaq;
-        } 
-        else {
-            pontuacaoJg2 = pontuacaoJg2 + 1;
         }
-    } 
+        // Função para inicializar as variáveis do jogo
+        function VariaveisJogo(){
 
-    // Verficar se o jogador 1 fez ponto
+            folhad = document.getElementById("folha");
+            aread = folhad.getContext("2d");
 
-    if(posicaoBolaX > larguraCampo){
-       
-        if(posicaoBolaY > posicaoJogador2 && posicaoBolaY < posicaoJogador2 + AlturaRaquete){
-            velocidadeBolaX = -velocidadeBolaX;
+            larguraCampo =  600;
+            alturaCampo = 500;
+            larguraLinha = 5;
+            AlturaRaquete = 50;
+            espessuraRaquete = 5;
+            tamanhoBola= 10;
+            efeitoRaq = 0.7;
+            velojg2 = 10;
 
-        var difY = posicaoBolaY - (posicaoJogador2 + AlturaRaquete/2);
-        velocidadeBolaY= difY * efeitoRaq;
-        } 
-        else{
-            pontuacaoJg1 = pontuacaoJg1 + 1;
+            posicaoBolaX = posicaoBolaY = 30;
+            velocidadeBolaX = velocidadeBolaY = 7;
+            posicaoJogador1 = posicaoJogador2 = 400;
+            pontuacaoJg1 = pontuacaoJg2 = 0;
+
+                // Movimento do jogador 1 (Humano)
+                folhad.addEventListener('mousemove', function(e){
+                    const rect = folhad.getBoundingClientRect()
+                    posicaoJogador1 = e.clientY - rect.top -AlturaRaquete/2;
+                });
+            
         }
-    }
+        // Função para calcular as regras do jogo
+        function CalculosJogo (){
 
-}
+            // Movimento da bola
+            posicaoBolaX= posicaoBolaX + velocidadeBolaX;
+            posicaoBolaY= posicaoBolaY + velocidadeBolaY;
+            
+            // Regras de colisão - Superior e Inferior
+            if(posicaoBolaY < 0 && velocidadeBolaY < 0){
+                // Aqui após a posição ultrapassar o valor 0, inverte o valor
+                velocidadeBolaY = -velocidadeBolaY;
+            }
+            if (posicaoBolaY > alturaCampo && velocidadeBolaY > 0){
+                // Aqui após a posição ultrapassar a alturaCampo, inverte o valor
+                velocidadeBolaY = -velocidadeBolaY;
+            }
+            // Regras de colisão com as raquetes
+            // Verificar se o jogador 2 fez ponto
+            if(posicaoBolaX < 0){
+                if(posicaoBolaY > posicaoJogador1 && posicaoBolaY < posicaoJogador1 + AlturaRaquete){
+                    velocidadeBolaX = -velocidadeBolaX;
+                    var difY = posicaoBolaY - (posicaoJogador1 + AlturaRaquete/2);
+                    velocidadeBolaY= difY * efeitoRaq;
+                } else {
+                    pontuacaoJg2 = pontuacaoJg2 + 1;
+                    // Resetar a posição da bola
+                    BolaCentro();
+                }
+            } 
+            // Verficar se o jogador 1 fez ponto
+            if(posicaoBolaX > larguraCampo){
+                if(posicaoBolaY > posicaoJogador2 && posicaoBolaY < posicaoJogador2 + AlturaRaquete){
+                    velocidadeBolaX = -velocidadeBolaX;
+                    var difY = posicaoBolaY - (posicaoJogador2 + AlturaRaquete/2);
+                    velocidadeBolaY= difY * efeitoRaq;
+                } else{
+                    pontuacaoJg1 = pontuacaoJg1 + 1;
+                    // Resetar a posição da bola
+                    BolaCentro(); 
+                }
+            }
+            // Movimento do jogador 2 (Computador)
+            if (posicaoJogador2 + AlturaRaquete/2 < posicaoBolaY){
+                posicaoJogador2 = posicaoJogador2 + velojg2git;
+            } else {
+                posicaoJogador2 = posicaoJogador2 - velojg2;
+            }
+    }
+        // Função principal do jogo
+        function Principal(){
+        CalculosJogo();
+        DesenhoJogo();
+    }
 
 </script>
 
