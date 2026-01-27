@@ -31,9 +31,9 @@
 </br>
 </br>
   <center>
-  <canvas id="folha" width="600" height="500"></canvas>
+  <canvas id="folha" width="600" height="500" style="border: 1px solid black;"></canvas>
   </center>
-  
+
 </BODY>
 
 <script>   
@@ -52,7 +52,7 @@
         // Função para desenhar os elementos do jogo
         function DesenhoJogo(){
 
-            aread.fillStyle = "#286047"; // Cor verde campo
+            aread.fillStyle = "#00643e"; // Cor verde campo
 
             // Campo de jogo 
             aread.fillRect(0,0,larguraCampo,alturaCampo);
@@ -62,18 +62,24 @@
             // Linha central
             aread.fillRect(larguraCampo/2 - larguraLinha/2,0,larguraLinha,alturaCampo); 
 
+
             // Raquete 1
+            aread.fillStyle = '#ffffff'; // Cor vermelha raquete 1
             aread.fillRect(0,posicaoJogador1,espessuraRaquete,AlturaRaquete);
 
-            // Raquete 2 
+            // Raquete 2
+            aread.fillStyle = '#b30000'; // Cor azul raquete 2 
             aread.fillRect(larguraCampo - espessuraRaquete,posicaoJogador2,espessuraRaquete,AlturaRaquete);
             
             // Bola 
+            aread.fillStyle = '#ffdd00'; // Cor amarela bola
             aread.fillRect(posicaoBolaX-tamanhoBola/2,posicaoBolaY-tamanhoBola/2,tamanhoBola,tamanhoBola); 
             
             // Pontuação dos jogadores
-            aread.fillText("Humano- "+ pontuacaoJg1 +" pontos", 100,100);
-            aread.fillText("Computador- "+ pontuacaoJg2 +" pontos", larguraCampo-200,100);
+            aread.fillStyle = '#ffffff'; 
+            aread.font = "12px Sans-Serif";
+            aread.fillText("Você -  "+ pontuacaoJg1 +" pontos", 90,50);
+            aread.fillText("Computador -  "+ pontuacaoJg2 +" pontos   " , larguraCampo-210,50);
 
         }
         // Função para inicializar as variáveis do jogo
@@ -85,14 +91,14 @@
             larguraCampo =  600;
             alturaCampo = 500;
             larguraLinha = 5;
-            AlturaRaquete = 50;
-            espessuraRaquete = 5;
+            AlturaRaquete = 75;
+            espessuraRaquete = 8;
             tamanhoBola= 10;
-            efeitoRaq = 0.7;
-            velojg2 = 10;
+            efeitoRaq = 0.4;
+            velojg2 = 20;
 
             posicaoBolaX = posicaoBolaY = 30;
-            velocidadeBolaX = velocidadeBolaY = 7;
+            velocidadeBolaX = velocidadeBolaY = 8;
             posicaoJogador1 = posicaoJogador2 = 400;
             pontuacaoJg1 = pontuacaoJg2 = 0;
 
@@ -121,7 +127,7 @@
             }
             // Regras de colisão com as raquetes
             // Verificar se o jogador 2 fez ponto
-            if(posicaoBolaX < 0){
+            if(posicaoBolaX < espessuraRaquete){
                 if(posicaoBolaY > posicaoJogador1 && posicaoBolaY < posicaoJogador1 + AlturaRaquete){
                     velocidadeBolaX = -velocidadeBolaX;
                     var difY = posicaoBolaY - (posicaoJogador1 + AlturaRaquete/2);
@@ -133,7 +139,7 @@
                 }
             } 
             // Verficar se o jogador 1 fez ponto
-            if(posicaoBolaX > larguraCampo){
+            if(posicaoBolaX > larguraCampo-espessuraRaquete){
                 if(posicaoBolaY > posicaoJogador2 && posicaoBolaY < posicaoJogador2 + AlturaRaquete){
                     velocidadeBolaX = -velocidadeBolaX;
                     var difY = posicaoBolaY - (posicaoJogador2 + AlturaRaquete/2);
@@ -150,6 +156,29 @@
             } else {
                 posicaoJogador2 = posicaoJogador2 - velojg2;
             }
+
+            if (pontuacaoJg1 >= pontuacaoJg2 + 7){
+                alert("Parabéns! Você venceu a máquina!");
+                pontuacaoJg1 = 0;
+                pontuacaoJg2 = 0;
+                velojg2 = velojg2 + 0.5;
+                BolaCentro();
+                if (velojg2 >= 20){
+                    alert("UAU! Você derrotou a máquina no nível máximo de dificuldade!");
+                    pontuacaoJg1 = 0;
+                    pontuacaoJg2 = 0;
+                    velojg2 = 4;
+                    BolaCentro();
+                }
+            }
+            if (pontuacaoJg2 >= pontuacaoJg1 + 7){
+                alert("Que pena! A máquina venceu você!");
+                pontuacaoJg1 = 0;
+                pontuacaoJg2 = 0;
+                velojg2 = velojg2 - 0.5;
+                BolaCentro();
+            }
+
     }
         // Função principal do jogo
         function Principal(){
