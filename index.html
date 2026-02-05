@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 
-<script>
-    alert("Cuidado! Grandes riscos desse jogo te viciar...");
-</script>
+<html lang="pt-BR">
 
-<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<HEAD>
-    <TITLE>Interactive Game</TITLE>
-</HEAD>
+    <title>Ping-Pong Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<BODY>
+<body>
+    <script>
+        alert("Cuidado! Grandes riscos desse jogo te viciar...");
+    </script>
 
-</br>
-<h1 align="center" style="color: black">Ping-Pong Web</h1>
-</br>
-<p align="center">
-  Bem-vindos ao meu projeto em HTML + JavaScript!
-</p>
+    <!-- Título -->
+    <h1 class="titulo">Ping-Pong Web</h1>
 
-<p align="center">Um mini jogo interativo utilizando JavaScript e HTML, e versionado com Git/GitHub.
-</p>
+    <!-- Descrições -->
+    <p class="centralizado">
+        Bem-vindos ao meu projeto em HTML + JavaScript!
+    </p>
 
-<p align="center">Leia o <strong>README.md</strong> para entender melhor o funcionamento deste jogo!
-</p>
+    <p class="centralizado">
+        Um mini jogo interativo utilizando JavaScript e HTML, versionado com Git/GitHub.
+    </p>
 
-<p align="center">Você consegue vencer a máquina? <strong>TENTE!</strong>
-</p>
-</br>
-</br>
-</br>
-  <center>
-  <canvas id="folha" width="600" height="500" style="border: 1px solid black;"></canvas>
-  </center>
+    <p class="centralizado">
+        Leia o <strong>README.md</strong> para entender melhor o funcionamento deste jogo!
+    </p>
 
-</BODY>
+    <p class="centralizado">
+        Você consegue vencer a máquina? <strong>TENTE!</strong>
+    </p>
+
+    <!-- Canvas do jogo -->
+    <div class="canvas-container">
+        <canvas id="folha" width="600" height="500"></canvas>
+    </div>
 
 <script>   
     window.onload = function(){
@@ -187,5 +191,7 @@
     }
 
 </script>
+
+</body> 
 
 </html>
