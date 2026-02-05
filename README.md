@@ -1,6 +1,6 @@
 ## Mini Jogo Ping-Pong
 
-Mini jogo criado com API Canvas, JavaScript e HTML.  
+Mini jogo criado com API Canvas, JavaScript, HTML e CSS.  
 Este é meu primeiro projeto utilizando GIT e GIT HUB*.
 
 Descrição
