@@ -4,7 +4,7 @@ Mini jogo criado com API Canvas, JavaScript, HTML e CSS.
 Este é meu primeiro projeto utilizando GIT e GIT HUB*.
 
 Descrição
- Um mini jogo interativo de Ping-Pong: você controla uma raquete com o mouse e compete contra o computador.
+ Um mini jogo interativo de Ping-Pong: você controla uma raquete com o mouse e compete contra o computador. 
 
 ## Detalhes do Projeto
 
