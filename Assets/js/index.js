@@ -2,6 +2,7 @@ window.onload = function () {
   VariaveisJogo(); // Inicializar variáveis do jogo
   setInterval(Principal, 1000 / 60); // 60 quadros por segundo
 };
+
 // Função para centralizar a bola após ponto
 function BolaCentro() {
   posicaoBolaX = larguraCampo / 2;
@@ -11,6 +12,7 @@ function BolaCentro() {
 }
 // Função para desenhar os elementos do jogo
 function DesenhoJogo() {
+
   aread.fillStyle = "#00643e"; // Cor verde campo
 
   // Campo de jogo
@@ -57,6 +59,7 @@ function DesenhoJogo() {
     larguraCampo - 210,
     50,
   );
+  
 }
 // Função para inicializar as variáveis do jogo
 function VariaveisJogo() {
@@ -162,4 +165,5 @@ function CalculosJogo() {
 function Principal() {
   CalculosJogo();
   DesenhoJogo();
+
 }
