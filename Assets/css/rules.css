@@ -1,0 +1,13 @@
+#botao-regras{
+     margin-top: 15px;
+     color: black;
+     font-family: "calibri";
+     font-style: normal;
+     border: 1px solid ;
+     border-radius: 4px ;
+     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+#botao-regras:hover{
+     color: black;
+     background-color:bisque;
+}

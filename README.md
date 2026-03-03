@@ -27,7 +27,7 @@ Descrição
     - Quando a bola ultrapassa a linha do adversário:
     - O jogador adversário ganha 1 ponto.
     - A bola é centralizada novamente, indo para o jogador que marcou o ponto.
-    - Quando um jogador atingir 7 de vantagem, o jogo é reiniciado
+    - Quando um jogador atingir 5 de vantagem, o jogo é reiniciado
       - Se o jogador com a vantagem for o computador, sua velocidade é diminuida em -0,5 da sua velocidade atual (ele inicia em velocidade: 3)
       - Se o jogador com a vantagem for o jogador 1(Você), a velocidade do jogador 2 (computador) é aumentada em +0,5 da sua velocidade inicial (sendo 20 sua velocidade limite)
       

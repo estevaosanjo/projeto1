@@ -139,7 +139,7 @@ function CalculosJogo() {
     posicaoJogador2 = posicaoJogador2 - velojg2;
   }
 
-  if (pontuacaoJg1 >= pontuacaoJg2 + 7) {
+  if (pontuacaoJg1 >= pontuacaoJg2 + 5) {
     alert("Parabéns! Você venceu a máquina!");
     pontuacaoJg1 = 0;
     pontuacaoJg2 = 0;
@@ -153,7 +153,7 @@ function CalculosJogo() {
       BolaCentro();
     }
   }
-  if (pontuacaoJg2 >= pontuacaoJg1 + 7) {
+  if (pontuacaoJg2 >= pontuacaoJg1 + 5) {
     alert("Que pena! A máquina venceu você!");
     pontuacaoJg1 = 0;
     pontuacaoJg2 = 0;
