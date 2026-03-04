@@ -1,8 +1,18 @@
 window.onload = function () {
   VariaveisJogo(); // Inicializar variáveis do jogo
   setInterval(Principal, 1000 / 60); // 60 quadros por segundo
+  informacoesJogo();
 };
 
+// Função para mostrar regras do jogo
+function informacoesJogo() {
+  console.log(
+    "Velocidade do Computador: " +
+      velojg2 +
+      "Velocidade da Bola: " +
+      velocidadeBolaX,
+  );
+}
 // Função para centralizar a bola após ponto
 function BolaCentro() {
   posicaoBolaX = larguraCampo / 2;
