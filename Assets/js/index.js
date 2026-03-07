@@ -1,6 +1,6 @@
 window.onload = function () {
   VariaveisJogo(); // Inicializar variáveis do jogo
-  setInterval(Principal, 1000 / 60); // 60 quadros por segundo
+  setInterval(Principal, 1000 / 90); // 60 quadros por segundo
 };
 
 // Função para centralizar a bola após ponto
@@ -145,7 +145,7 @@ function CalculosJogo() {
     pontuacaoJg2 = 0;
     velojg2 = velojg2 + 0.5;
     BolaCentro();
-    if (velojg2 >= 20) {
+    if (velojg2 >= 16) {
       alert("UAU! Você derrotou a máquina no nível máximo de dificuldade!");
       pontuacaoJg1 = 0;
       pontuacaoJg2 = 0;
