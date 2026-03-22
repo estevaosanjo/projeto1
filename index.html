@@ -23,7 +23,7 @@
     </p>
 
     <p class="centralizado">
-        Um mini jogo interativo utilizando JavaScript e HTML, versionado com Git/GitHub.
+        Um mini jogo interativo utilizando JavaScript e HTML, versionado com Git e hospedado no GitHub.
     </p>
 
     <p class="centralizado">
@@ -43,9 +43,23 @@
         <canvas id="folha" width="600" height="500"></canvas>
     </div>
 
+        <div id="modal-regras" class="modal">
+          <div class="modal-conteudo">
+            <span id="fechar-modal" class="fechar">&times;</span>
+
+             <h2>Regras do Jogo</h2>
+
+             <p id="texto-regras"></p>
+
+            <h3>Status atual:</h3>
+            <p>Velocidade da bola: <span id="velBola"></span></p>
+            <p>Velocidade do computador: <span id="velCPU"></span></p>
+          </div>
+        </div>
+
   <script src="./Assets/js/info.js"></script>
   <script src="./Assets/js/index.js"></script>
-
+  
 </body> 
 
 </html>

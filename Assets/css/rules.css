@@ -1,15 +1,87 @@
-#botao-regras{
-     padding: 1px 10px;
-     margin-top: 20px;
-     color: black;
-     font-family: "calibri";
-     font-style: normal;
-     border: 1px solid ;
-     border-radius: 4px ;
-     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-}
-#botao-regras:hover{
-     color: black;
-     background-color:rgb(93, 206, 140);
+
+/* ── Botão "Regras do Jogo" ─────────────────────────────────── */
+#botao-regras {
+  padding: 6px 16px;         /* aumentado: área de clique mais confortável */
+  margin-top: 20px;
+  color: black;
+  font-family: "Calibri", sans-serif;
+  font-style: normal;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;           /* CORREÇÃO: indica ao usuário que é clicável */
+  background-color: white;   /* base explícita para a transição do hover funcionar */
+  transition: background-color 0.2s;
 }
 
+#botao-regras:hover {
+  color: black;
+  background-color: rgb(93, 206, 140);
+}
+
+/* ── Overlay do modal (fundo escuro) ────────────────────────── */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  /* Centraliza o modal-conteudo sem precisar de margin: auto manual */
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  NOTA: quando display muda para "block" via JS, o flexbox não ativa.
+  Duas opções:
+    A) Manter margin: 10% auto no .modal-conteudo (mais simples, já funciona)
+    B) Trocar para display: "flex" no JS em vez de "block" (centralização perfeita)
+
+  O código atual usa a opção A para manter compatibilidade com o seu JS existente.
+  Se quiser usar a opção B, troque no JS:
+    modal.style.display = "flex"   (abrir)
+    modal.style.display = "none"   (fechar)
+*/
+
+/* ── Caixa de conteúdo do modal ─────────────────────────────── */
+.modal-conteudo {
+  background: white;
+  margin: 10% auto;
+  padding: 20px 28px;
+  width: 420px;
+  max-width: 90vw;           /* NOVO: não transborda em telas pequenas */
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Botão fechar (×) ───────────────────────────────────────── */
+.fechar {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  color: #666;
+  transition: color 0.15s;
+}
+
+.fechar:hover {
+  color: #000;
+}
+
+/* ── Texto das regras ───────────────────────────────────────── */
+/*
+  CORREÇÃO: o <pre> preserva as quebras de linha do template string,
+  mas por padrão usa fonte monoespaçada e não quebra linhas longas.
+  Esses estilos corrigem os dois problemas.
+*/
+#texto-regras {
+  font-family: "Calibri", sans-serif;  /* mesma fonte do resto da página */
+  font-size: 14px;
+  white-space: pre-wrap;               /* preserva \n e quebra linhas longas */
+  line-height: 1.6;
+  margin: 12px 0;
+  color: #333;
+}
