@@ -48,10 +48,15 @@ function fecharModal() {
 // Lê as variáveis do index.js e escreve nos <span> do modal.
 // Chamada na abertura e repetida pelo setInterval.
 function atualizarInfo() {
-  document.getElementById("velBola").textContent = velocidadeBola;
-  document.getElementById("velCPU").textContent = velocidadeJogador2;
-}
+  // typeof verifica se a variável existe antes de ler
+  // evita o ReferenceError se index.js ainda não inicializou
+  const bola = typeof velocidadeBola !== "undefined" ? velocidadeBola : "—";
+  const cpu =
+    typeof velocidadeJogador2 !== "undefined" ? velocidadeJogador2 : "—";
 
+  document.getElementById("velBola").textContent = bola;
+  document.getElementById("velCPU").textContent = cpu;
+}
 // ── Event listeners ───────────────────────────────────────────
 
 // CORREÇÃO: botão agora de fato chama mostrarRegras()
