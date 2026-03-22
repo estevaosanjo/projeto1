@@ -11,6 +11,9 @@ Descrição
 1. Campo de jogo:
   - Criado com `<canvas>`
   - Tamanho: 600x500 pixels
+  - Regras do jogo 
+   - Pop-up Modal para exibir informações e instruções do jogo 
+   - Mostra também o Status Atual do jogo: Velocidade da bola e Velocidade do Jogador 2 (Computador)
 
 2. Raquetes:
     Jogador 1 (Humano):

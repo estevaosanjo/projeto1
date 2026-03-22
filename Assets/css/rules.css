@@ -80,8 +80,8 @@
 #texto-regras {
   font-family: "Calibri", sans-serif;  /* mesma fonte do resto da página */
   font-size: 14px;
-  white-space: pre-wrap;               /* preserva \n e quebra linhas longas */
+  white-space:pre-wrap ;               /* preserva \n e quebra linhas longas */
   line-height: 1.6;
-  margin: 12px 0;
+  margin: 10px 0;
   color: #333;
 }
